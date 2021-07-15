@@ -1,0 +1,22 @@
+<h1>Welcome, {{ employeeAdminName }}</h1>
+<h3>Employees and their attendance record</h3>
+<ul>
+{% for employee in employees %}
+  <li>
+    <a href = "{% url 'office:empHistory' employee.username %}"> {{ employee }}: </a>
+    {% if employee.isPresent %}
+    <b><font color="green">Present </font></b>
+    {% else %}
+    <b><font color="red">Absent </font></b>
+    {% endif %}
+    today
+  </li>
+{% endfor %}
+</ul>
+
+<a href = "{% url 'office:addEmployee' %}">Add Employee</a>
+
+<h5>
+  <a href="{% url 'office:changePassword' %}">Change Password</a><br>
+  <a href = "{% url 'logout' %}">Logout</a>
+</h5>

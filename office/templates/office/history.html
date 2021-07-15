@@ -1,0 +1,21 @@
+<h2>
+  {% if name %}
+    {{ name }}'s History
+  {% else %}
+    Your History
+  {% endif %}
+</h2>
+<ol>
+  {% for date, present in record.items %}
+    <li>
+      {{ date }}:
+      {% if present %}
+      <font color="green"><b>Present</b></font>
+      {% else %}
+      <font color="red"><b>Absent</b></font>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ol>
+<a href="{% url 'office:profile' %}">Back to profile</a>
+<h5><a href="{% url 'logout' %}">Logout</a></h5>

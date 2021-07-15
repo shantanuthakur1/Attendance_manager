@@ -1,0 +1,20 @@
+<h2>Welcome, Employee {{ employee.first_name }} {{ employee.last_name }}</h2>
+<h3>Details:</h3>
+<ul>
+  <li><b>Name:</b> {{ employee.first_name }} {{ employee.last_name }}</li>
+  <li><b>Username:</b> {{ employee.username }}</li>
+  <li><b>E-mail ID:</b> {{ employee.email }}</li>
+  <li><b>Joining date:</b> {{ employee.joinDate }}</li>
+</ul>
+{% if employee.isPresent %}
+You have been marked <font color="green"><b>Present</b></font> today!
+{% else %}
+You are currently marked <font color="red"><b>Absent</b></font>.<br>
+<a href="{% url 'office:mark' %}">Mark today as <font color="green"><b>Present</b></font>!</a>
+{% endif %}
+<br>
+<a href="{% url 'office:history' %}">Show attendance history</a>
+<h5>
+  <a href="{% url 'office:changePassword' %}">Change Password</a><br>
+  <a href="{% url 'logout' %}">Logout</a>
+</h5>
